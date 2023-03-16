@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { prompt } = req.body
 
     // ChatGPT
-    const content = `The following is a conversation with an AI assistant. The assistant is helpful, creative, clever.\nHuman: ${prompt}\nAI:`
+    const content = `Please prepare an agenda and summary of the following statement in Japanese:\n: ${prompt}`
     const response = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: content }],

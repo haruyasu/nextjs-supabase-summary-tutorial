@@ -10,15 +10,19 @@ const PostList = async () => {
   const { data: postsData } = await supabase
     .from('posts')
     .select()
-    .order('created_at', { ascending: true })
+    .order('created_at', { ascending: false })
 
   // 投稿が見つからない場合
   if (!postsData) return notFound()
 
   return (
-    <div className="mb-40">
-      {postsData.map((post) => {
-        return <PostItem key={post.id} {...post} />
+    <div className="border rounded">
+      {postsData.map((post, index) => {
+        return (
+          <div className={postsData.length - 1 === index ? '' : 'border-b'} key={post.id}>
+            <PostItem {...post} />
+          </div>
+        )
       })}
     </div>
   )

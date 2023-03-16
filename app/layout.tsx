@@ -8,12 +8,16 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     <html>
       <body>
         <SupabaseProvider>
-          <div className="flex flex-col min-h-screen bg-[#7494C0]">
+          <div className="flex flex-col min-h-screen">
             <Navigation />
 
-            <main className="flex-1 container max-w-screen-md mx-auto px-2 py-5 relative">
-              {children}
-            </main>
+            <main className="flex-1 container max-w-screen-md mx-auto px-5 py-10">{children}</main>
+
+            <footer className="py-5 border-t">
+              <div className="text-center text-sm text-gray-500">
+                Copyright © All rights reserved | FullStackChannel
+              </div>
+            </footer>
           </div>
         </SupabaseProvider>
       </body>
